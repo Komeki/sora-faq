@@ -1,0 +1,125 @@
+:root {
+    --White: hsl(0, 100%, 100%);
+    --Purple100: hsl(275, 100%, 97%);
+    --Purple600: hsl(292, 16%, 49%);
+    --Purple700: #ad28eb;
+    --Purple950: hsl(292, 42%, 14%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: WorkSansGX;
+    font-size: 16px;
+    color: var(--Purple950);
+    border: none;
+    background-color: transparent;
+}
+
+.back-pattern {
+    position: absolute;
+    width: 100%;
+}
+
+.block {
+    display: flex;
+    min-height: 100vh;
+    padding-bottom: 125px ;
+    background-color: var(--Purple100);
+}
+
+.container {
+    max-width: 400px;
+    height: auto;
+    z-index: 1;
+    display: block;
+    margin: 125px auto auto;
+    background-color: white;
+    border-radius: 18px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: clamp(20px, 8vw, 50px);
+
+}
+
+@media (max-width: 650px) {
+    .container {
+        max-width: 320px; /* Уменьшаем максимальную ширину карточки для телефонов */
+        width: 100%;       /* Заставляем её занимать доступное пространство */
+    }
+}
+
+.header {
+    display: flex;
+    gap: 15px;
+    align-content: center;
+    margin-bottom: 50px;
+}
+
+.title {
+    font-size: 48px;
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 1s;
+}
+
+.faq-question-title {
+    transition: 0.3s;
+}
+
+.faq-question:hover,
+.faq-question-title:hover,
+.faq-btn {
+    color: var(--Purple700);
+    font-weight: 800;
+    transition: 0.2s;
+    cursor: pointer;
+
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--Purple100);
+    margin-bottom: 30px;
+
+}
+
+.faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+
+    transition: grid-template-rows 0.5s ease;
+}
+
+.faq-answer-text {
+    min-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 1s ease, transform 1s ease;
+    margin-block: 15px; 
+}
+
+p {
+    color: #8f8797;
+}
+
+.faq-answer.active {
+    transition: .5;
+    grid-template-rows: 1fr;
+}
+
+.faq-answer.active .faq-answer-text {
+    opacity: 1;
+    transition: 1s;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.faq-btn {
+    margin-left: 50px;
+}
